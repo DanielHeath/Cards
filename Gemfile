@@ -1,29 +1,15 @@
 source 'http://rubygems.org'
-
+gem 'bundler', '0.9.20'
 gem 'rails', '3.0.0.beta3'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri', '1.4.1'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for certain environments:
-# gem 'rspec', :group => :test
-# group :test do
-#   gem 'webrat'
-# end
-
-gem "mongoid", "2.0.0.beta4"
-gem "bson_ext", "0.20.1"
-
-#mongo flame.mongohq.com:27045/deck-me-dev -u <user> -p <pass>
+gem 'mongo', '1.0.0'
+gem 'bson', '1.0.0'
+gem 'bson_ext', '1.0.0'
+gem 'mongo_mapper'
+gem 'jnunemaker-validatable'
+gem 'formtastic'
+gem 'haml'
+gem 'compass'
+gem 'inherited_resources'
+gem 'has_scope'
+gem 'responders'
+gem 'will_paginate'
