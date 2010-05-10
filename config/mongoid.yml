@@ -1,9 +1,6 @@
 defaults: &defaults
   host: flame.mongohq.com
   port: 27045
-  database: deck-me-dev
-  username: dev
-  password: dev
   allow_dynamic_fields: true
   parameterize_keys: true
   persist_in_safe_mode: true
@@ -14,6 +11,8 @@ defaults: &defaults
 development:
   <<: *defaults
   database: deck-me-dev
+  username: dev
+  password: dev
 
 test:
   <<: *defaults
@@ -22,6 +21,8 @@ test:
 # set these environment variables on your prod server
 production:
   <<: *defaults
-  host: 
-  port: 
-  database: 
+  host: ENV['MONGOID_HOST']
+  port: ENV['MONGOID_PORT']
+  username: ENV["MONGOID_USERNAME"]
+  password: ENV['MONGOID_PASSWORD']
+  database: ENV['MONGOID_DATABASE']
