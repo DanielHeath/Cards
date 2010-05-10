@@ -1,7 +1,6 @@
 #mongo flame.mongohq.com:27045/deck-me-dev -u <user> -p <pass>
 defaults: &defaults
-  host: flame.mongohq.com
-  port: 27045
+  uri: <%= ENV['MONGOHQ_URL'] || "flame.mongohq.com:27045" %>
   username: dev
   password: dev
   # slaves:
