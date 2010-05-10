@@ -1,5 +1,5 @@
 require File.expand_path('../boot', __FILE__)
-require ‘uri’
+require 'uri'
 
 if ENV[“MONGOHQ_URL”]
   mongo_uri = URI.parse(ENV[“MONGOHQ_URL”])
