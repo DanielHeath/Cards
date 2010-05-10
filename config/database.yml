@@ -5,5 +5,5 @@ development:
   host: flame.mongohq.com
   port: 27045
   database: deck-me-dev
-  user: dev
-  pass: dev
+  username: dev
+  password: dev
