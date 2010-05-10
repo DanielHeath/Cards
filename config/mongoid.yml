@@ -16,7 +16,7 @@ development:
 
 test:
   <<: *defaults
-  database: control_test
+  database: deck-me-test
 
 # set these environment variables on your prod server
 production:
