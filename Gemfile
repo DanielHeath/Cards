@@ -5,8 +5,6 @@ gem 'rails', '3.0.0.beta3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -24,3 +22,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :test do
 #   gem 'webrat'
 # end
+
+gem "mongoid", "2.0.0.beta4"
+gem "bson_ext", "0.20.1"
+
+#mongo flame.mongohq.com:27045/deck-me-dev -u <user> -p <pass>
