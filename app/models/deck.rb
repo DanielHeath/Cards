@@ -1,6 +1,5 @@
 class Deck
-  include MongoMapper::Document
-  
-  key :name, String, :required => true
-  many :cards
+  include Mongoid::Document
+  field :name
+  embeds_many :cards
 end

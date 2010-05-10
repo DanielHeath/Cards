@@ -3,7 +3,6 @@ class DecksController < ApplicationController
   # GET /decks.xml
   def index
     @decks = Deck.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @decks }
