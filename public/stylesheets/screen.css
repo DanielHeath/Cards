@@ -1,3 +1,11 @@
+div#main {
+  width:      750px;
+  margin:     0 auto;
+  background: #99c;
+}
+
+input { left: 150px}
+
 body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {

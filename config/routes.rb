@@ -1,5 +1,9 @@
 Cards::Application.routes.draw do |map|
-  resources :decks
+  
+  match 'draw/:id' => 'decks#draw', :as => "draw"
+  resources :decks, :member => [:draw]
+
+  root :to => 'decks#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

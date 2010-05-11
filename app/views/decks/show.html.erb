@@ -1,5 +1,25 @@
-<p class="notice"><%= notice %></p>
-<%= @deck.name %>
+<h2>Deck number <%= params[:id] %></h2>
+<small><%= polymorphic_url @deck %> </small>
+<%= form_for :draw, :url => draw_url(@deck) do |f| %>
+  <ul id="draw">
+    <li>
+      <label>Number of cards to draw: <%= f.text_field :number %></label>
+    </li>
+    <li>
+      <label>Reason for draw: <%= f.text_field :reason %></label>
+    </li>
+    <li>
+      <%= f.submit %>
+    </li>
+  </ul>
+<% end %>
 
-<%= link_to 'Edit', edit_deck_path(@deck) %> |
-<%= link_to 'Back', decks_path %>
+<ul id="cards-drawn">
+  <% flash[:drawn].each do |card| %>
+    <li>
+      You drew: <%= card %>
+    </li>
+  <% end if flash[:drawn].respond_to? :each %>
+</ul>
+
+<%= render "activity_log" %>

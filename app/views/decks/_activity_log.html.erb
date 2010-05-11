@@ -1,0 +1,10 @@
+<h2>Activity Log</h2>
+<ul id="activity-log">
+  <% @deck.activities.by_date.each do |act| %>
+    <li>
+      <%= act.describe %>
+    </li>
+  <% end %>
+</ul>
+
+
