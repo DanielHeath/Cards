@@ -11,18 +11,34 @@ class Deck
   end
   
   def draw_cards(params)
-    available_cards = (Card::CARDS - self.cards.map(&:description)).shuffle
-    raise "Too many cards requested!" if params[:number].to_i > available_cards.length
-    
     res = []
-    res << self.activities.build(:description => "Drawing #{params[:number].to_i} cards for '#{params[:reason]}'...")
+    res << activity("Drawing #{params[:number].to_i} cards for '#{params[:reason]}'...")
     params[:number].to_i.times do
+      if available_cards.length == 0 then
+        res << activity("Reshuffling as the deck is now empty!")
+        self.cards.each {|c| c.destroy }
+        reload_available_cards
+        raise "Error reshuffling the deck" if available_cards.length == 0
+      end
       card = available_cards.pop
       self.cards.build(:description => card)
-      res << self.activities.build(:description => Activity.make_draw_description(card, params[:reason]))
+      res << activity(Activity.make_draw_description(card, params[:reason]))
     end
     save!
     res
+  end
+  
+  def activity(desc)
+    self.activities.build(:description => desc)
+  end
+  
+  def available_cards
+    puts self.cards.inspect unless @available_cards
+    @available_cards ||= (Card::CARDS - self.cards.map(&:description)).shuffle
+  end
+  
+  def reload_available_cards
+    @available_cards = nil
   end
   
 end
