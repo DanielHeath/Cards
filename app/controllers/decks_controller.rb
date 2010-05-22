@@ -21,7 +21,7 @@ class DecksController < ApplicationController
   def draw
     @deck = Deck.find(params[:id])
     cards = @deck.draw_cards(params[:draw])
-    redirect_to @deck, :flash => {:drawn => cards.map(&:description)}
+    redirect_to @deck
   end
 
 end
